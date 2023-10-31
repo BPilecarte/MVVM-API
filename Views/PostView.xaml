@@ -4,6 +4,8 @@
              x:Class="MVVM_API_SampleProject.Views.PostView"
              Title="PostView">
     <VerticalStackLayout>
+        <Label>
+        </Label>
         <Label 
             Text="{Binding Post.UserId}"
             VerticalOptions="Center" 

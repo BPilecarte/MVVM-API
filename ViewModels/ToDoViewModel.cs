@@ -7,19 +7,17 @@ using System.Threading.Tasks;
 
 namespace MVVM_API_SampleProject.ViewModels
 {
-    public class PostViewModel
+    public class ToDoViewModel
     {
-        public Post Post {  get; set; }
+        public ToDo ToDo {  get; set; }
 
-        public PostViewModel()
+        public ToDoViewModel()
         {
-            Post = new Post()
-            { 
-            
+            ToDo = new ToDo()
+            {
                 UserId = 1,
                 Id = 1,
-                Title = "Titulo",
-                Body = "Texto"
+                Title = "Lavar a roupa",
             };
         }
     }

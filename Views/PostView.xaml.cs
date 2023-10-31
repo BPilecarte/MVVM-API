@@ -5,9 +5,8 @@ namespace MVVM_API_SampleProject.Views;
 
 public partial class PostView : ContentPage
 {
-	public PostView()
-	{
-		InitializeComponent();
-		BindingContext = new PostViewModel();
-	}
+    public PostView()
+    {
+        BindingContext = new PostViewModel();
+    }
 }
