@@ -29,7 +29,7 @@
         <HorizontalStackLayout VerticalOptions="Center" 
             HorizontalOptions="Center"> 
             <Label Text="Completed:  "/>
-            <CheckBox IsChecked="False"/>
+            <CheckBox IsChecked="{Binding  ToDo.Completed}"/>
         </HorizontalStackLayout>
 
 

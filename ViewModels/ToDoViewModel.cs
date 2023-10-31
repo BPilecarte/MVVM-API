@@ -18,6 +18,7 @@ namespace MVVM_API_SampleProject.ViewModels
                 UserId = 1,
                 Id = 1,
                 Title = "Lavar a roupa",
+                Completed=false
             };
         }
     }
