@@ -11,5 +11,6 @@ public partial class ToDoView : ContentPage
         InitializeComponent();
         BindingContext = new ToDoViewModel();
     }
+
     CheckBox checkBox = new CheckBox { IsChecked = true };
 }

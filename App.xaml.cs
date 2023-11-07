@@ -1,4 +1,5 @@
-﻿using MVVM_API_SampleProject.Views;
+﻿using MVVM_API_SampleProject.ViewModels;
+using MVVM_API_SampleProject.Views;
 
 namespace MVVM_API_SampleProject
 {
@@ -8,7 +9,7 @@ namespace MVVM_API_SampleProject
         {
             InitializeComponent();
 
-            MainPage = new ToDoView();
+            MainPage = new AppShell();
         }
     }
 }

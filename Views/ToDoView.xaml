@@ -3,35 +3,58 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MVVM_API_SampleProject.Views.ToDoView"
              Title="ToDoView">
-    <VerticalStackLayout>
-        <Label>
-        </Label>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Entry Placeholder="Id Post" Text="{Binding ToDo.Id}"/>
+            <Entry Placeholder="Titulo do Post" Text="{Binding ToDo.UserId}"/>
+            <Entry Placeholder="Titulo do Post" Text="{Binding ToDo.Title}"/>
+            <Entry Placeholder="Id Post" Text="{Binding ToDo.Body}"/>
 
-        <HorizontalStackLayout VerticalOptions="Center" 
-            HorizontalOptions="Center">
-            <Label Text="Titulo:  "/>
-            <Label Text="{Binding  ToDo.Title}"/>
-        </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Button Text="Carregar Posts" Command="{Binding GetToDosCommand}"/>
+            </HorizontalStackLayout>
+
+            <CollectionView x:Name="ToDoColletion" ItemsSource="{Binding ToDo}" EmptyView="Nenhum post encontrado">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Frame>
+                                <VerticalStackLayout Margin="50" HorizontalOptions="Center" MaximumWidthRequest="180">
+                                    <Label  
+                                    Text="{Binding UserId}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
+
+                                    <Label  
+                                    Text="{Binding Id}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
+
+                                    <Label  
+                                    Text="{Binding Title}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
+
+                                    <Label  
+                                    Text="{Binding Body}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
+
+                                </VerticalStackLayout>
+                            </Frame>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
 
 
-        <HorizontalStackLayout VerticalOptions="Center" 
-            HorizontalOptions="Center">
-            <Label Text="Id do Usuário: " />
-            <Label Text="{Binding ToDo.UserId}"/>
-        </HorizontalStackLayout>
+    </ScrollView>
 
-        <HorizontalStackLayout VerticalOptions="Center" 
-            HorizontalOptions="Center">
-            <Label Text="Id da tarefa: " />
-            <Label Text="{Binding  ToDo.Id}" />
-        </HorizontalStackLayout>
-        
-        <HorizontalStackLayout VerticalOptions="Center" 
-            HorizontalOptions="Center"> 
-            <Label Text="Completed:  "/>
-            <CheckBox IsChecked="{Binding  ToDo.Completed}"/>
-        </HorizontalStackLayout>
-
-
-    </VerticalStackLayout>
 </ContentPage>

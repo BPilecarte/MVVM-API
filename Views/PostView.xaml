@@ -3,28 +3,58 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MVVM_API_SampleProject.Views.PostView"
              Title="PostView">
-    <VerticalStackLayout>
-        <Label>
-        </Label>
-        <Label 
-            Text="{Binding Post.UserId}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <ScrollView>
+        <VerticalStackLayout>
+            <Entry Placeholder="Id Post" Text="{Binding Post.Id}"/>
+            <Entry Placeholder="Titulo do Post" Text="{Binding Post.UserId}"/>
+            <Entry Placeholder="Titulo do Post" Text="{Binding Post.Title}"/>
+            <Entry Placeholder="Body Post" Text="{Binding Post.Body}"/>
 
-        <Label 
-            Text="{Binding  Post.Id}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            <HorizontalStackLayout>
+                <Button Text="Carregar Posts" Command="{Binding GetPostsCommand}"/>
+            </HorizontalStackLayout>
 
-        <Label 
-            Text="{Binding  Post.Title}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            <CollectionView x:Name="PostsColletion" ItemsSource="{Binding Posts}" EmptyView="Nenhum post encontrado">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
 
-        <Label 
-            Text="{Binding  Post.Body}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        
-    </VerticalStackLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Frame>
+                                <VerticalStackLayout Margin="50" HorizontalOptions="Center" MaximumWidthRequest="180">
+                                    <Label  
+                                    Text="{Binding UserId}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
+
+                                    <Label  
+                                    Text="{Binding Id}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
+
+                                    <Label  
+                                    Text="{Binding Title}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
+
+                                    <Label  
+                                    Text="{Binding Body}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
+
+                                </VerticalStackLayout>
+                            </Frame>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+
+    </ScrollView>
+
 </ContentPage>
