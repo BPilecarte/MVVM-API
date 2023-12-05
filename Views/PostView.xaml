@@ -10,14 +10,14 @@
             <Entry Placeholder="Titulo do Post" Text="{Binding Post.Title}"/>
             <Entry Placeholder="Body Post" Text="{Binding Post.Body}"/>
 
+
             <HorizontalStackLayout>
                 <Button Text="Carregar Posts" Command="{Binding GetPostsCommand}"/>
             </HorizontalStackLayout>
-
-            <CollectionView x:Name="PostsColletion" ItemsSource="{Binding Posts}" EmptyView="Nenhum post encontrado">
-                <CollectionView.ItemsLayout>
+            <CollectionView x:Name="PostColletion" ItemsSource="{Binding Posts}" EmptyView="Nenhum post encontrado">
+            <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"/>
-                </CollectionView.ItemsLayout>
+            </CollectionView.ItemsLayout>
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -39,6 +39,7 @@
                                     VerticalOptions="Center"
                                     HorizontalOptions="Center"/>
 
+
                                     <Label  
                                     Text="{Binding Body}"
                                     VerticalOptions="Center"
@@ -50,11 +51,5 @@
                     </DataTemplate>
 
                 </CollectionView.ItemTemplate>
-            </CollectionView>
-
-        </VerticalStackLayout>
-
-
-    </ScrollView>
-
+    </ScrollView>  
 </ContentPage>

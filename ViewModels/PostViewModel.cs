@@ -30,12 +30,7 @@ namespace MVVM_API_SampleProject.ViewModels
         [ObservableProperty]
         public ObservableCollection<Post> _posts;
 
-        public PostViewModel()
-        {
-            client = new HttpClient();
-            Posts = new ObservableCollection<Post>();
-            _serializerOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        }
+
 
         public ICommand GetPostsCommand => new Command(async () => await LoadPostAsync());
 
@@ -60,6 +55,8 @@ namespace MVVM_API_SampleProject.ViewModels
         public void Dispose()
         {
             throw new NotImplementedException();
+
         }
+
     }
 }

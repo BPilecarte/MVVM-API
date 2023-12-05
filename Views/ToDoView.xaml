@@ -6,12 +6,20 @@
     <ScrollView>
         <VerticalStackLayout>
             <Entry Placeholder="Id Post" Text="{Binding ToDo.Id}"/>
+<<<<<<< HEAD
             <Entry Placeholder="Titulo do Post" Text="{Binding ToDo.UserId}"/>
+=======
+            <Entry Placeholder="Titulo do Post" Text="{Binding UserId}"/>
+>>>>>>> 3851bf03003e2e2598850cc16ca8a78472e01ed2
             <Entry Placeholder="Titulo do Post" Text="{Binding ToDo.Title}"/>
             <Entry Placeholder="Id Post" Text="{Binding ToDo.Body}"/>
 
             <HorizontalStackLayout>
+<<<<<<< HEAD
                 <Button Text="Carregar Posts" Command="{Binding GetToDosCommand}"/>
+=======
+                <Button Text="Carregar Posts" Command="{Binding GetToDoCommand}"/>
+>>>>>>> 3851bf03003e2e2598850cc16ca8a78472e01ed2
             </HorizontalStackLayout>
 
             <CollectionView x:Name="ToDoColletion" ItemsSource="{Binding ToDo}" EmptyView="Nenhum post encontrado">
