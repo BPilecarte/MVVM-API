@@ -5,7 +5,6 @@ using System.Text.Json;
 using System.Windows.Input;
 using System.Diagnostics;
 
-
 namespace MVVM_API_SampleProject.ViewModels
 {
     internal partial class ToDoViewModel : ObservableObject, IDisposable
@@ -15,7 +14,6 @@ namespace MVVM_API_SampleProject.ViewModels
         JsonSerializerOptions _serializerOptions;
 
         string baseUrl = "http://jsonplaceholder.typicode.com";
-
 
         [ObservableProperty]
         public int _UserId;
@@ -27,13 +25,11 @@ namespace MVVM_API_SampleProject.ViewModels
         public string _Title;
 
         [ObservableProperty]
-        public string _Body;
+        public string _Completed;
 
         [ObservableProperty]
         public ObservableCollection<ToDo> _toDos;
 
-        [ObservableProperty]
-        public ObservableCollection<ToDo> _posts;
 
         public ToDoViewModel()
         {
@@ -42,11 +38,11 @@ namespace MVVM_API_SampleProject.ViewModels
             _serializerOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         }
 
-        public ICommand GetPostCommand => new Command(async () => await LoadPostAsync());
+        public ICommand GetToDoCommand => new Command(async () => await LoadToDoAsync());
 
-        private async Task LoadPostAsync()
+        private async Task LoadToDoAsync()
         {
-            var url = $"{baseUrl}/toDos";
+            var url = $"{baseUrl}/todos";
             try
             {
                 var response = await client.GetAsync(url);
@@ -65,31 +61,6 @@ namespace MVVM_API_SampleProject.ViewModels
         public void Dispose()
         {
             throw new NotImplementedException();
-            Posts = new ObservableCollection<ToDo>();
-            _serializerOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         }
-
-        public ICommand GetPostsCommand => new Command(async () => await LoadPostsAsync());
-
-        private async Task LoadPostsAsync()
-        {
-            var url = $"{baseUrl}/posts";
-            try
-            {
-                var response = await client.GetAsync(url);
-                if (response.IsSuccessStatusCode)
-                {
-                    string content = await response.Content.ReadAsStringAsync();
-                    Posts = JsonSerializer.Deserialize<ObservableCollection<ToDo>>(content, _serializerOptions);
-
-                }
-            }
-            catch (Exception e) { }
-        }
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

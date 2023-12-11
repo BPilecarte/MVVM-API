@@ -5,12 +5,7 @@
              Title="PostView">
     <ScrollView>
         <VerticalStackLayout>
-            <Entry Placeholder="Id Post" Text="{Binding Post.Id}"/>
-            <Entry Placeholder="Titulo do Post" Text="{Binding Post.UserId}"/>
-            <Entry Placeholder="Titulo do Post" Text="{Binding Post.Title}"/>
-            <Entry Placeholder="Body Post" Text="{Binding Post.Body}"/>
-
-
+          
             <HorizontalStackLayout>
                 <Button Text="Carregar Posts" Command="{Binding GetPostsCommand}"/>
             </HorizontalStackLayout>
@@ -51,5 +46,11 @@
                     </DataTemplate>
 
                 </CollectionView.ItemTemplate>
-    </ScrollView>  
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+
+    </ScrollView>
+
 </ContentPage>

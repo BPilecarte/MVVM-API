@@ -5,24 +5,11 @@
              Title="ToDoView">
     <ScrollView>
         <VerticalStackLayout>
-            <Entry Placeholder="Id Post" Text="{Binding ToDo.Id}"/>
-<<<<<<< HEAD
-            <Entry Placeholder="Titulo do Post" Text="{Binding ToDo.UserId}"/>
-=======
-            <Entry Placeholder="Titulo do Post" Text="{Binding UserId}"/>
->>>>>>> 3851bf03003e2e2598850cc16ca8a78472e01ed2
-            <Entry Placeholder="Titulo do Post" Text="{Binding ToDo.Title}"/>
-            <Entry Placeholder="Id Post" Text="{Binding ToDo.Body}"/>
 
             <HorizontalStackLayout>
-<<<<<<< HEAD
-                <Button Text="Carregar Posts" Command="{Binding GetToDosCommand}"/>
-=======
-                <Button Text="Carregar Posts" Command="{Binding GetToDoCommand}"/>
->>>>>>> 3851bf03003e2e2598850cc16ca8a78472e01ed2
+                <Button Text="Carregar ToDo" Command="{Binding GetToDoCommand}"/>
             </HorizontalStackLayout>
-
-            <CollectionView x:Name="ToDoColletion" ItemsSource="{Binding ToDo}" EmptyView="Nenhum post encontrado">
+            <CollectionView x:Name="ToDoColletion" ItemsSource="{Binding ToDos}" EmptyView="Nenhum toDo encontrado">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"/>
                 </CollectionView.ItemsLayout>
@@ -47,10 +34,10 @@
                                     VerticalOptions="Center"
                                     HorizontalOptions="Center"/>
 
-                                    <Label  
-                                    Text="{Binding Body}"
-                                    VerticalOptions="Center"
+
+                                    <CheckBox x:Name="Completed" IsChecked="{Binding Completed}"  VerticalOptions="Center"
                                     HorizontalOptions="Center"/>
+                                   
 
                                 </VerticalStackLayout>
                             </Frame>
