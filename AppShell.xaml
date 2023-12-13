@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MVVM_API_SampleProject.Views"
     Shell.FlyoutBehavior="Disabled">
+
     <TabBar>
         <ShellContent 
                 Title="Posts"
@@ -17,8 +18,6 @@
                 ContentTemplate="{ DataTemplate local:ToDoView}"
                 Route="ToDo"
                 />
-
-
     </TabBar>
 
 </Shell>
